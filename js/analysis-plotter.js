@@ -33,8 +33,9 @@ class AnalysisPlotter {
             points.push(data.equation(x));
         }
 
-        if (this.chart) {
-            this.chart.destroy();
+        let existingChart = Chart.getChart(this.container);
+        if (existingChart) {
+            existingChart.destroy();
         }
 
         this.chart = new Chart(ctx, {
